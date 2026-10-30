@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="General Agent Studio 0.6.0 Windows 설치, 문서 작성, 참고파일, 기관 정보, AI 연결과 HWPX 저장 안내">
+  <title>General Agent Studio 사용 안내 · 0.6.0</title>
+  <style>
+    :root{--ink:#21364a;--muted:#607286;--navy:#17324a;--teal:#087f80;--line:#d9e3e9;--paper:#fff;--canvas:#f1f5f7;--mint:#e8f5f1;--warm:#fff7e8}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--canvas);color:var(--ink);font:16px/1.8 "Malgun Gothic","맑은 고딕",system-ui,sans-serif;word-break:keep-all}a{color:var(--teal);text-underline-offset:4px}a:focus-visible,summary:focus-visible{outline:3px solid #318fbb;outline-offset:4px}h1,h2,h3,p{margin:0}h1,h2,h3{line-height:1.4;letter-spacing:-.025em}h1{font-size:clamp(30px,4vw,44px)}h2{font-size:25px;margin-bottom:12px}h3{font-size:18px;margin-bottom:8px}p+p{margin-top:12px}ul,ol{margin:10px 0 0;padding-left:24px}li+li{margin-top:7px}code{font-family:Consolas,"Malgun Gothic",monospace;font-size:.9em;background:#edf2f5;padding:2px 6px;border-radius:4px}.skip{position:fixed;top:-80px;left:12px;background:white;padding:10px;z-index:5}.skip:focus{top:12px}
+    .shell{max-width:1240px;margin:auto;display:grid;grid-template-columns:250px minmax(0,1fr)}aside{position:sticky;top:0;height:100vh;overflow:auto;background:#fbfcfd;border-right:1px solid var(--line);padding:34px 24px}.brand{font-weight:800;font-size:20px;line-height:1.4;color:var(--navy)}.brand span{color:var(--teal)}.edition{font-size:12px;color:var(--muted);margin:10px 0 28px}nav{display:grid;gap:5px}nav a{text-decoration:none;color:var(--muted);padding:8px 9px;font-size:14px;border-radius:7px}nav a:hover{background:var(--mint);color:var(--teal)}.offline{border-top:1px solid var(--line);padding-top:18px;margin-top:26px;font-size:12px;color:var(--muted)}main{padding:36px clamp(22px,4vw,50px) 60px;min-width:0}.hero{background:var(--navy);color:white;border-radius:20px;padding:36px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;color:#a3d9d2}.hero h1{margin:12px 0}.hero p{color:#dce8ef;max-width:650px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.button{display:inline-block;text-decoration:none;background:white;color:var(--navy);border:1px solid white;border-radius:8px;padding:9px 13px;font-size:14px;font-weight:700}.button.secondary{background:transparent;color:#e1edf4;border-color:#7594a8}.stamp{font-size:12px;color:var(--muted);margin-top:14px}.section{margin-top:36px;scroll-margin-top:24px}.card{background:white;border:1px solid var(--line);border-radius:14px;padding:23px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.choice strong,.flow strong{display:block;color:var(--navy)}.choice p,.flow p{font-size:14px;color:var(--muted);margin-top:7px}.flow{counter-reset:phase}.flow>div{counter-increment:phase}.flow strong:before{content:counter(phase) " ";color:var(--teal)}.note{font-size:14px;color:var(--muted);margin-top:12px}.callout{margin-top:15px;padding:16px 19px;background:var(--mint);border-left:4px solid var(--teal);border-radius:0 10px 10px 0;font-size:14px}.callout strong{display:block;margin-bottom:3px}.callout.warm{background:var(--warm);border-color:#b78024}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:10px;background:white}table{border-collapse:collapse;width:100%;min-width:530px;font-size:14px}th,td{text-align:left;vertical-align:top;padding:13px 15px;border-bottom:1px solid var(--line)}th{background:#eaf0f4;color:var(--navy)}tr:last-child td{border-bottom:0}td:first-child{font-weight:700;white-space:nowrap}details{border:1px solid var(--line);border-radius:10px;background:white;padding:0 18px;margin-top:10px}summary{font-size:15px;font-weight:700;cursor:pointer;padding:15px 0}details p{font-size:14px;color:var(--muted);padding-bottom:17px}footer{margin-top:40px;border-top:1px solid var(--line);padding-top:20px;font-size:12px;color:var(--muted)}
+    @media(max-width:900px){.shell{grid-template-columns:210px minmax(0,1fr)}aside{padding:27px 18px}.grid{grid-template-columns:1fr}.hero{padding:28px}}
+    @media(max-width:650px){.shell{display:block}aside{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:23px 20px}.brand br{display:none}.edition{margin:6px 0 15px}nav{display:flex;flex-wrap:wrap;gap:5px}nav a{font-size:12px;background:#edf3f6;padding:5px 8px}.offline{display:none}main{padding:22px 17px 45px}.hero{padding:27px 23px}.hero p{font-size:14px}.card{padding:20px}h2{font-size:23px}}
+    @media print{html{scroll-behavior:auto}body{background:white;font-size:10pt;color:#222}.shell{display:block}aside,.actions,.skip{display:none}main{padding:0}.hero{background:white;color:#17324a;border:2px solid #17324a;border-radius:0;padding:22px}.hero p,.eyebrow{color:#345466}h1{font-size:25pt}h2{font-size:17pt}.section{margin-top:25px}.card,.callout,details{break-inside:avoid}.grid{gap:10px}.table-wrap{overflow:visible}table{min-width:0;font-size:9pt}th,td{padding:8px}details p{display:block}a{color:inherit;text-decoration:none}@page{size:A4;margin:16mm}}
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<div class="shell">
+  <aside aria-label="사용 안내 목차">
+    <div class="brand">General<br><span>Agent Studio</span></div>
+    <p class="edition">Windows · 0.6.0 사용 안내<br>2026. 10. 30.</p>
+    <nav aria-label="목차"><a href="#install">설치와 준비</a><a href="#start">시작 방법 고르기</a><a href="#flow">세 묶음으로 진행하기</a><a href="#agency">우리 기관 설정</a><a href="#files">참고파일 넣기</a><a href="#ai">AI 연결·전송 동의</a><a href="#save">저장·다시 열기</a><a href="#help">문제 해결</a></nav>
+    <p class="offline">이 안내서는 오프라인으로 읽을 수 있습니다. 인쇄하거나 PDF로 보관하려면 브라우저의 인쇄 기능을 사용하세요.</p>
+  </aside>
+  <main id="main">
+    <header class="hero">
+      <span class="eyebrow">GENERAL AGENT STUDIO · WINDOWS</span>
+      <h1>문서를 시작하고,<br>확인하고, 저장하세요.</h1>
+      <p>요청과 참고자료로 초안을 만들거나 기존 문서를 가져와 다듬습니다. 내용·기관·서식을 확인한 뒤 작업 파일과 HWPX로 남겨 보세요.</p>
+      <div class="actions"><a class="button" href="#start">처음 시작하기</a><a class="button secondary" href="https://github.com/newskool4d-sketch/General-Agent-Studio/releases/latest" target="_blank" rel="noopener noreferrer">설치 파일·릴리스 노트</a></div>
+    </header>
+    <p class="stamp">안내 기준: General Agent Studio 0.6.0 · 이 HTML은 외부 글꼴·CDN·분석 스크립트를 사용하지 않습니다.</p>
+
+    <section class="section" id="install" aria-labelledby="install-title">
+      <h2 id="install-title">설치와 준비</h2>
+      <div class="card"><ol><li>배포 페이지에서 <code>General-Agent-Studio-Setup-0.6.0.exe</code>를 받습니다. 파일의 SHA-256과 서명 상태는 같은 릴리스 노트에서 확인하세요.</li><li>설치 안내에서 위치를 확인하고 설치합니다. 설치 후 <strong>General Agent Studio</strong>를 엽니다.</li><li>상단의 제품명과 버전을 확인하고, 기존 문서는 <code>.iceplan</code> 또는 지원하는 문서 파일로 가져옵니다.</li></ol></div>
+      <div class="callout"><strong>기존 ICE Agent Studio와 별도로 설치합니다.</strong>기존 앱과 이전 버전 설치 파일을 대체하지 않습니다. 기관 설정·전송 동의·업데이트 경로도 분리됩니다. 기존 앱의 설정이 자동으로 옮겨진다고 가정하지 말고, 작업 파일과 기관 설정 파일을 새 앱에서 직접 불러오세요.</div>
+      <div class="card" style="margin-top:14px"><h3>사용 전에 준비할 것</h3><ul><li><strong>AI 기능:</strong> 공식 Claude Code 또는 Codex CLI와 앱이 지원하는 웹 구독 계정 로그인</li><li><strong>HWPX 생성:</strong> Python 3.11 이상. 앱은 Windows에서 <code>py</code> 런처를 먼저 시도하고 <code>python</code>으로도 실행을 시도합니다.</li><li><strong>최종 확인:</strong> HWPX 호환 편집기와 서식 글꼴. 기본 서식은 HY헤드라인M·휴먼명조·맑은 고딕을 사용하며 글꼴이 없으면 출력 모양이 달라질 수 있습니다.</li></ul><p class="note">앱은 Python·공식 AI CLI·글꼴을 자동으로 설치하지 않습니다. 조직 PC에서 설치가 제한되면 전산 담당자에게 확인하세요.</p></div>
+    </section>
+
+    <section class="section" id="start" aria-labelledby="start-title">
+      <h2 id="start-title">먼저 시작 방법을 고르세요</h2>
+      <div class="grid choice"><div class="card"><strong>새 문서 만들기</strong><p>만들고 싶은 내용을 적고 참고자료가 있으면 추가합니다. 새 계획안 작성·기존 사업 개선·공문 분석·회신·아이디어 정리 중 작업을 고릅니다.</p></div><div class="card"><strong>기존 문서 다듬기</strong><p>HWP·HWPX·TXT·MD를 가져옵니다. 내용과 서식을 확인하며 편집합니다.</p></div><div class="card"><strong>하던 작업 이어하기</strong><p>저장해 둔 <code>.iceplan</code>을 엽니다. 이전 문서와 확인 상태를 이어서 검토합니다.</p></div></div>
+      <p class="note">새 문서의 요청에는 목적·대상·기간·알고 있는 예산·꼭 넣을 내용을 적으세요. 아직 모르는 값은 모른다고 적고 생성 뒤 확인합니다.</p>
+    </section>
+
+    <section class="section" id="flow" aria-labelledby="flow-title">
+      <h2 id="flow-title">내용 준비 → 문서 꾸미기 → 확인하고 저장</h2>
+      <div class="grid flow"><div class="card"><strong>내용 준비</strong><p>문서를 만들거나 가져온 뒤 내용을 확인합니다. 문서 종류, 목차·요약 구성, 확인할 수치와 추정 표시를 검토합니다.</p></div><div class="card"><strong>문서 꾸미기</strong><p>제목·기관을 입력하고 쪽 구성·서식을 확인합니다. 각 쪽의 역할과 항목기호를 살펴본 뒤 확정합니다.</p></div><div class="card"><strong>확인하고 저장</strong><p>수정 제안을 적용하거나 원문을 유지합니다. 남은 항목을 확인한 다음 HWPX로 저장합니다.</p></div></div>
+      <div class="callout"><strong>다음 버튼 옆 안내를 확인하세요.</strong>세 묶음 안에는 기존의 내용·목차, 제목·기관, 쪽별 구성, 수정 제안 확인 절차가 유지됩니다. 진행이 막히면 현재 화면의 미확인 항목과 다음 행동 안내를 먼저 보세요.</div>
+      <p class="note">가져온 HWPX는 실조판으로 실제 쪽을 탐색합니다. 빠른 미리보기의 논리 쪽 번호와 실제 쪽 번호가 같다고 가정하지 마세요.</p>
+    </section>
+
+    <section class="section" id="agency" aria-labelledby="agency-title">
+      <h2 id="agency-title">상단 ‘우리 기관’에서 직접 입력합니다</h2>
+      <div class="card"><ol><li><strong>기관명</strong>과 필요한 <strong>부서명</strong>을 입력합니다. 기관명은 필수입니다.</li><li>로고가 있으면 PNG·JPG 파일을 넣습니다. 최대 2MB입니다. 로고를 쓰지 않으면 <strong>로고 없이 사용</strong>을 고릅니다.</li><li>입력 아래의 기관 정보 미리보기를 확인합니다. <strong>추가 정보·표지 서식</strong>에서 영문명·슬로건·표지 모양을 정할 수 있습니다.</li><li><strong>다음 문서에도 이 기관 정보 사용</strong>을 체크하면 현재 정보를 이 기기에 저장합니다.</li></ol><p class="note">표지 서식을 바꿔도 기관명과 로고는 유지됩니다. 저장한 정보와 다르게 수정했으면 재사용 선택 상태를 다시 확인하세요.</p></div>
+      <div class="callout"><strong>다른 기기나 기존 앱에서 가져올 때</strong><strong>기관 설정 파일로 보관·불러오기</strong>에서 <code>.iceprofile</code>을 저장하거나 엽니다. 작업 저장본에도 기관명·부서·로고를 보관합니다. 불러온 저장본의 기관 정보가 이 기기의 기본 기관 정보보다 우선합니다.</div>
+    </section>
+
+    <section class="section" id="files" aria-labelledby="files-title">
+      <h2 id="files-title">참고파일은 읽기 결과부터 확인하세요</h2>
+      <div class="card"><p><strong>참고자료 추가</strong>에서 직접 고른 파일을 읽습니다. 최대 8개, 파일당 최대 30MB입니다. 실행 전 파일별 읽기 결과·사용할 분량·읽기 안내를 확인하세요. 파일이 크거나 읽지 못한 내용이 있으면 일부만 사용할 수 있으며, 필요한 확인을 마쳐야 진행됩니다.</p></div>
+      <div class="callout warm" role="note"><strong>음성 회의록 안내</strong>음성 회의록은 먼저 텍스트로 전사한 뒤 TXT 또는 MD 파일로 첨부해 주세요.</div>
+      <div class="table-wrap" style="margin-top:15px"><table><thead><tr><th>형식</th><th>출처·사용 범위</th><th>확인할 내용</th></tr></thead><tbody><tr><td>PDF</td><td>실제 쪽 번호로 표시하고 사용할 쪽을 고릅니다.</td><td>스캔 쪽·그림 속 내용 등 읽지 못한 부분은 텍스트로 보완합니다. 복잡한 표의 배치는 원문과 대조합니다.</td></tr><tr><td>DOCX</td><td>구역을 기준으로 표시합니다.</td><td>구역은 실제 인쇄 쪽 번호와 다릅니다. 본문·표·각주와 읽기 누락 안내를 확인합니다.</td></tr><tr><td>XLSX</td><td>시트와 셀 범위를 표시하고 사용할 시트를 고릅니다.</td><td>숨김 시트는 기본 선택에서 제외합니다. 수식은 저장된 계산값을 읽으며 재계산하지 않습니다. 계산값이 없으면 해당 안내를 확인합니다.</td></tr><tr><td>CSV</td><td>표의 행·열을 기준으로 읽습니다.</td><td>제목·단위·선행 0과 숫자가 의도대로 읽혔는지 확인합니다.</td></tr><tr><td>HWP·HWPX·TXT·MD</td><td>추출한 본문을 참고자료로 읽습니다.</td><td>내용과 사용할 분량을 확인합니다. 회의록 전사본은 TXT·MD로 넣습니다.</td></tr></tbody></table></div>
+      <p class="note"><strong>PDF·DOCX·XLSX·CSV는 내용을 참고하는 용도</strong>입니다. 해당 파일 자체를 편집하는 기능은 제공하지 않습니다. 사용할 쪽·구역·시트를 바꾸면 이전 읽기 확인이 해제되므로 다시 확인하세요. 음성 파일 직접 전사와 OCR은 지원하지 않습니다.</p>
+    </section>
+
+    <section class="section" id="ai" aria-labelledby="ai-title">
+      <h2 id="ai-title">AI 연결과 외부 전송 동의를 확인하세요</h2>
+      <div class="card"><ol><li>상단 <strong>AI 연결</strong>을 열고 사용할 서비스의 로그인 상태를 확인합니다.</li><li>로그인이 필요하면 앱의 로그인 버튼으로 공식 인증 과정을 진행합니다. 비밀번호·토큰은 문서 요청이나 자료에 붙여 넣지 않습니다.</li><li>인증 후 <strong>상태 새로고침</strong>으로 ‘연결됨’을 확인합니다.</li><li>전송 범위를 읽고 <strong>외부 AI 전송 동의</strong>를 직접 켭니다. 기본 상태는 꺼짐입니다.</li></ol><p class="note">Claude는 이 PC의 공식 Claude Code 로그인 상태를 사용합니다. Codex는 General Agent Studio 전용 환경에 별도 로그인하며, 기존 ICE Agent Studio의 Codex 인증을 자동으로 가져오지 않습니다. 앱은 인증 토큰 파일을 직접 읽고 관리하지 않고 공식 CLI에 인증을 맡깁니다. API 키·종량 과금 로그인 경로는 허용하지 않습니다.</p></div>
+      <div class="callout warm"><strong>실행할 때 요청과 자료 내용이 외부 AI로 전송됩니다.</strong>요청·문서 본문·선택한 참고자료 내용이 선택한 서비스로 전송됩니다. <strong>법령 확인 후 작성</strong>을 켜면 초안을 Codex로 작성하더라도 제목·요청과 참고자료 앞부분 최대 12,000자가 Claude(Anthropic)에도 전송될 수 있습니다. 화면에 표시된 서비스와 전송 안내를 확인하고, 전송할 권한이 없는 자료는 첨부하지 마세요.</div>
+      <p class="note">앱에 포함된 에이전트·스킬 기준은 배포본의 사본입니다. 개인 PC의 스킬 변경이 자동으로 반영되거나 모든 외부 도구가 실행된다고 가정하지 마세요.</p>
+    </section>
+
+    <section class="section" id="save" aria-labelledby="save-title">
+      <h2 id="save-title">작업 파일과 한글 파일을 각각 저장하세요</h2>
+      <div class="table-wrap"><table><thead><tr><th>저장할 것</th><th>사용 방법</th><th>다시 사용할 때</th></tr></thead><tbody><tr><td>작업 파일<br><code>.iceplan</code></td><td><strong>파일 → 작업 저장</strong>으로 문서와 작업 상태를 보관합니다.</td><td><strong>하던 작업 이어하기</strong> 또는 <strong>파일 → 작업 열기</strong>로 엽니다.</td></tr><tr><td>기관 설정<br><code>.iceprofile</code></td><td><strong>우리 기관 → 기관 설정 파일로 보관·불러오기</strong>에서 저장합니다.</td><td>새 앱이나 다른 기기에서 기관 정보를 불러옵니다.</td></tr><tr><td>최종 문서<br><code>.hwpx</code></td><td>확인 절차를 마친 뒤 <strong>한글 파일 저장 (.hwpx)</strong>을 누릅니다.</td><td><strong>폴더에서 보기</strong>로 찾아 HWPX 호환 편집기에서 엽니다.</td></tr></tbody></table></div>
+      <div class="callout"><strong>출력 후 실제 문서를 확인하세요.</strong>제목·기관명·표와 본문의 수치·글꼴·쪽 나눔·쪽 번호를 확인합니다. <code>[확인 필요]</code>와 <code>[추정]</code> 표시, 법령·예산·일정은 담당자가 근거와 대조해 확정하세요. HWPX를 저장해도 작업 파일이 자동으로 함께 저장되지는 않습니다.</div>
+      <div class="card" style="margin-top:14px"><h3>새 버전 확인</h3><p>설치된 General Agent Studio는 새 배포 주소에서 업데이트를 확인합니다. 새 버전이 준비되면 작업을 저장한 뒤 <strong>다시 시작해 적용</strong>을 선택합니다. 앱을 그냥 종료했다고 자동 설치하지는 않습니다. 기존 ICE Agent Studio는 별도 배포 경로를 유지합니다.</p></div>
+    </section>
+
+    <section class="section" id="help" aria-labelledby="help-title">
+      <h2 id="help-title">진행이 막힐 때</h2>
+      <details><summary>초안 만들기 버튼을 누를 수 없습니다.</summary><p>AI 서비스가 연결됐는지, 외부 전송 동의가 켜졌는지 확인하세요. 참고파일 읽기가 끝났는지, 일부 사용·읽기 안내 확인이 필요한지도 보세요. 기존 사업 개선·공문 분석·회신은 자료가 필요합니다.</p></details>
+      <details><summary>다른 앱에서 Codex에 로그인했는데 연결되지 않습니다.</summary><p>General Agent Studio는 전용 Codex 환경을 사용합니다. 이 앱의 AI 연결에서 로그인한 뒤 상태를 새로고침하세요. 공식 CLI 설치·계정 권한·사용량 제한도 확인합니다.</p></details>
+      <details><summary>파일을 읽지 못하거나 일부 내용이 빠졌습니다.</summary><p>파일별 안내를 읽고 사용할 범위를 다시 고르세요. 암호·손상·내용 없는 파일은 원본 상태를 확인합니다. 스캔 PDF·그림 속 내용은 필요한 부분을 TXT·MD로 준비해 추가하세요. 범위를 바꾸면 읽기 확인을 다시 해야 합니다.</p></details>
+      <details><summary>다음 단계나 저장 단계가 잠겨 있습니다.</summary><p>현재 화면의 다음 행동 안내를 확인하세요. 문서 종류·목차·요약, 제목·기관, 쪽별 구성, 남은 수정 제안을 차례로 확인해야 합니다. 기관명이 비어 있거나 로고를 읽는 중에도 진행이 제한됩니다.</p></details>
+      <details><summary>Python이나 글꼴을 찾을 수 없다고 나옵니다.</summary><p>Python 3.11 이상과 필요한 글꼴이 준비돼 있는지 확인하고 앱을 다시 여세요. 글꼴이 대체되면 줄바꿈과 쪽 수가 달라질 수 있습니다. 출력 문서를 편집기에서 확인하세요.</p></details>
+      <details><summary>기존 앱의 기관 정보가 새 앱에 보이지 않습니다.</summary><p>두 앱의 설정 저장소는 분리돼 있습니다. 기존 앱에서 저장한 .iceprofile을 불러오거나, 기관 정보가 포함된 .iceplan 작업 파일을 엽니다. 새 앱에서도 다음 문서에 쓰려면 재사용 선택을 확인하세요.</p></details>
+    </section>
+    <footer>General Agent Studio · 0.6.0 · 2026. 10. 30.<br>이 안내서는 앱 사용 방법을 설명합니다. 실제 설치 파일의 검증 결과·서명 상태·확인값은 해당 릴리스 노트를 확인하세요.</footer>
+  </main>
+</div>
+</body>
+</html>
